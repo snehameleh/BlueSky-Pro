@@ -20,12 +20,13 @@
             display: ['Fraunces', 'Georgia', 'serif'],
           },
           colors: {
+            /* Lightened, less-yellow paper tones */
             cream: {
-              50: '#FDFAF1',
-              100: '#F8F2E4',
-              200: '#F0E9D6',
-              300: '#E8E0C8',
-              400: '#DDD3B5',
+              50:  '#FBF9F4',
+              100: '#F4F1E9',
+              200: '#EAE5D9',
+              300: '#DFD9CB',
+              400: '#CFC9B9',
             },
             olive: {
               50: '#F3F5E8',
@@ -53,16 +54,16 @@
   <style>
     html { scroll-behavior: smooth; }
     body {
-      background: #F8F2E4;
+      background: #F4F1E9;
       color: #2A3220;
       font-family: 'Inter', sans-serif;
     }
 
-    /* Hero gradient — soft, single radial */
+    /* Hero gradient — soft, less-yellow paper base */
     .hero-bg {
       background:
         radial-gradient(ellipse 55% 35% at 50% 0%, rgba(200,217,160,0.22) 0%, transparent 70%),
-        linear-gradient(180deg, #FDFAF1 0%, #F8F2E4 100%);
+        linear-gradient(180deg, #FBF9F4 0%, #F4F1E9 100%);
     }
 
     /* Olive gradient text */
@@ -132,21 +133,21 @@
 
     /* Pricing featured */
     .pricing-featured {
-      background: linear-gradient(180deg, #FDFAF1 0%, #F8F2E4 100%);
+      background: linear-gradient(180deg, #FBF9F4 0%, #F4F1E9 100%);
       border: 2px solid #B8935A;
       box-shadow: 0 4px 20px rgba(184,147,90,0.15), 0 0 60px rgba(138,155,77,0.08);
     }
 
     /* Navigation */
     .nav-blur {
-      background: rgba(248,242,228,0.85);
+      background: rgba(244,241,233,0.85);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(107,123,63,0.1);
     }
 
     /* Section alternate */
     .bg-cream-alt {
-      background: #F0E9D6;
+      background: #EAE5D9;
     }
 
     /* FAQ */
@@ -188,33 +189,129 @@
     </div>
   </nav>
 
-  <!-- ====== HERO ====== -->
-  <section class="hero-bg relative pt-36 pb-24 px-6 overflow-hidden">
-    <div class="relative max-w-6xl mx-auto text-center">
-      <!-- Eyebrow — catchphrase + logo mark -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-olive-100 border border-olive-200 mb-8">
-        <div class="w-4 h-4 rounded bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center shrink-0">
-          <svg class="w-2.5 h-2.5 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+  <!-- ====== HERO — split layout: content + signal-preview card ====== -->
+  <section class="hero-bg relative pt-32 pb-20 px-6 overflow-hidden">
+    <div class="relative max-w-7xl mx-auto">
+
+      <!-- Top grid: content (left) + signal-preview card (right, narrower) -->
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+        <!-- LEFT: content -->
+        <div class="lg:col-span-8 text-center lg:text-left">
+
+          <!-- Eyebrow — catchphrase with WIN BIG dominant, lose small whispered -->
+          <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-olive-100 border border-olive-200 mb-7">
+            <div class="w-4 h-4 rounded bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center shrink-0">
+              <svg class="w-2.5 h-2.5 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+            </div>
+            <span class="text-olive-700 text-xs md:text-sm font-semibold tracking-wider lowercase">lose small</span>
+            <span class="text-olive-400">·</span>
+            <span class="text-olive-900 text-sm md:text-base font-black tracking-[0.15em] uppercase">Win Big</span>
+          </div>
+
+          <h1 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-6 text-olive-900">
+            Trade less.<br/>
+            <span class="text-olive-gradient italic">Let your money work.</span>
+          </h1>
+
+          <p class="text-base md:text-lg text-olive-700 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+            A semi-automated swing trading system for the daily chart. Curated stocks, precision signals, and a battle-tested rulebook — inside TradingView. <span class="text-olive-900 font-semibold">15 minutes a day.</span>
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-8">
+            <a href="#pricing" class="btn-gold px-7 py-3.5 rounded-full text-base">Get BlueSky Pro →</a>
+            <a href="#system" class="btn-secondary px-7 py-3.5 rounded-full text-base">See How It Works</a>
+          </div>
+
+          <!-- Trust bar (compact) -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-olive-600 text-xs">
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+              30-day money-back
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+              Works on TradingView
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+              Any broker
+            </div>
+          </div>
         </div>
-        <span class="text-olive-800 text-xs font-bold tracking-widest uppercase">Lose small · Win big</span>
+
+        <!-- RIGHT: stylized "Signal Preview" card — smaller, supporting role -->
+        <div class="lg:col-span-4 lg:max-w-xs lg:ml-auto w-full">
+          <div class="card rounded-2xl p-4 md:p-5 relative">
+            <!-- Card header strip -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-olive-500 opacity-60"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-olive-600"></span>
+                </span>
+                <span class="text-[11px] font-bold text-olive-700 tracking-widest uppercase">Signal Preview</span>
+              </div>
+              <span class="text-[11px] font-mono text-olive-500">Daily · 1D</span>
+            </div>
+
+            <!-- SVG mini-chart: BUY entry → TP1 → TP2 target, SL below -->
+            <svg viewBox="0 0 320 200" class="w-full h-auto" role="img" aria-label="Example BlueSky Pro signal with entry, TP1, TP2, and SL levels">
+              <!-- Gridlines -->
+              <line x1="0" y1="40"  x2="320" y2="40"  stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
+              <line x1="0" y1="95"  x2="320" y2="95"  stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
+              <line x1="0" y1="155" x2="320" y2="155" stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
+              <line x1="0" y1="180" x2="320" y2="180" stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
+
+              <!-- Price line from entry to TP2 -->
+              <path d="M20,168 Q50,160 75,145 T135,105 T200,70 T270,42 T306,35"
+                    stroke="#556330" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <!-- Soft area fill under the price line -->
+              <path d="M20,168 Q50,160 75,145 T135,105 T200,70 T270,42 T306,35 L306,195 L20,195 Z"
+                    fill="url(#fill)" opacity="0.18"/>
+              <defs>
+                <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#6B7B3F" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#6B7B3F" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- TP2 line + label (top) -->
+              <line x1="20" y1="40" x2="306" y2="40" stroke="#556330" stroke-width="1.2" stroke-dasharray="5,3"/>
+              <rect x="20" y="26" width="54" height="16" rx="3" fill="#E5EAC9" stroke="#556330" stroke-width="0.8"/>
+              <text x="47" y="37" fill="#3E4826" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">TP2</text>
+              <text x="300" y="37" fill="#556330" font-size="10" font-family="Inter" font-weight="700" text-anchor="end">+28%</text>
+
+              <!-- TP1 line + label (middle) -->
+              <line x1="20" y1="95" x2="306" y2="95" stroke="#B8935A" stroke-width="1.2" stroke-dasharray="5,3"/>
+              <rect x="20" y="81" width="54" height="16" rx="3" fill="#FEF3C7" stroke="#B8935A" stroke-width="0.8"/>
+              <text x="47" y="92" fill="#92400E" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">TP1</text>
+              <text x="300" y="92" fill="#92400E" font-size="10" font-family="Inter" font-weight="700" text-anchor="end">+12%</text>
+
+              <!-- SL line + label (bottom) -->
+              <line x1="20" y1="180" x2="306" y2="180" stroke="#B91C1C" stroke-width="1.2" stroke-dasharray="5,3"/>
+              <rect x="20" y="184" width="54" height="16" rx="3" fill="#FEE2E2" stroke="#B91C1C" stroke-width="0.8"/>
+              <text x="47" y="195" fill="#B91C1C" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">SL</text>
+              <text x="300" y="195" fill="#B91C1C" font-size="10" font-family="Inter" font-weight="700" text-anchor="end">-10%</text>
+
+              <!-- BUY entry marker -->
+              <circle cx="20" cy="168" r="5.5" fill="#556330" stroke="#FFFDF7" stroke-width="2"/>
+              <rect x="30" y="160" width="38" height="16" rx="3" fill="#556330"/>
+              <text x="49" y="171" fill="#FDFAF1" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">BUY</text>
+            </svg>
+
+            <!-- Card footer -->
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-olive-200">
+              <span class="text-[11px] text-olive-600">Asymmetric by design</span>
+              <span class="text-xs font-bold text-olive-900">R/R ≈ 1 : 2.8</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight mb-8 text-olive-900">
-        Trade less.<br/>
-        <span class="text-olive-gradient italic">Let your money work.</span>
-      </h1>
-
-      <p class="text-lg md:text-xl text-olive-700 max-w-3xl mx-auto leading-relaxed mb-10">
-        A complete swing trading system for the daily chart. A curated stock universe, precision entry and exit signals, and a battle-tested rulebook — delivered inside TradingView. <span class="text-olive-900 font-semibold">15 minutes a day. No screens. No guessing.</span>
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-        <a href="#pricing" class="btn-gold px-8 py-4 rounded-full text-base">Get BlueSky Pro →</a>
-        <a href="#system" class="btn-secondary px-8 py-4 rounded-full text-base">See How It Works</a>
-      </div>
-
-      <!-- Quick proof strip -->
-      <div class="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3 mb-10">
+      <!-- Proof strip — sits centered below the split -->
+      <div class="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4 mt-14 pt-10 border-t border-olive-200/60">
         <div class="flex items-baseline gap-2">
           <span class="font-display font-bold text-2xl md:text-3xl text-olive-gradient">+31.03%</span>
           <span class="text-olive-600 text-xs uppercase tracking-wider font-semibold">CAGR</span>
@@ -230,26 +327,10 @@
           <span class="text-olive-600 text-xs uppercase tracking-wider font-semibold">External Audits Passed</span>
         </div>
       </div>
-
-      <!-- Trust bar -->
-      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-olive-600 text-sm">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-          30-Day Money-Back Guarantee
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-          Works on TradingView
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-olive-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-          Any Broker. Any Account Size.
-        </div>
-      </div>
     </div>
 
-    <!-- Real Chart Screenshot — Arista Networks -->
-    <div class="relative max-w-6xl mx-auto mt-20">
+    <!-- Real Chart Screenshot — Arista Networks (full-width proof below the hero) -->
+    <div class="relative max-w-6xl mx-auto mt-16">
       <div class="flex items-center justify-center gap-2 mb-4">
         <span class="w-2 h-2 rounded-full bg-olive-500"></span>
         <span class="text-xs font-bold tracking-widest text-olive-700 uppercase">Actual Signals · NYSE:ANET · Daily Chart</span>
@@ -257,7 +338,28 @@
       <div class="card rounded-2xl p-2 md:p-3 overflow-hidden">
         <img src="images/arista-signals.png" alt="BlueSky Pro signals on Arista Networks (ANET) daily chart — 17 trades with multiple TP2 wins and stop losses capped around -11%" class="w-full rounded-xl block" loading="eager" />
       </div>
-      <p class="text-center text-olive-600 text-sm mt-4 italic max-w-3xl mx-auto">Real BlueSky Pro output on Arista Networks. 17 trades executed by the system · TP2 winners ranging +6% to +32% · stop losses capped around -11% · 6-slot portfolio with $10k starting capital.</p>
+      <p class="text-center text-olive-600 text-sm mt-4 italic max-w-3xl mx-auto">Real BlueSky Pro output on Arista Networks. 17 trades · TP2 winners +6% to +32% · stops capped around -11% · 6-slot portfolio, $10k start.</p>
+    </div>
+
+    <!-- Tagline finale — the emotional close of the hero -->
+    <div class="relative max-w-4xl mx-auto mt-20 md:mt-24 text-center">
+      <div class="flex items-center justify-center gap-3 mb-10">
+        <div class="h-px w-12 bg-olive-300"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-gold"></div>
+        <div class="h-px w-12 bg-olive-300"></div>
+      </div>
+
+      <p class="font-display italic text-3xl md:text-5xl leading-snug text-olive-800 tracking-tight">
+        Losing is part of the game.<br/>
+        But <span class="text-olive-gradient font-bold not-italic">Winning BIG</span> is the <span class="text-gold-gradient font-black not-italic">FUN</span> part.
+      </p>
+
+      <div class="mt-10 flex items-center justify-center gap-2 opacity-85">
+        <div class="w-4 h-4 rounded bg-gradient-to-br from-olive-400 to-olive-600 flex items-center justify-center">
+          <svg class="w-2.5 h-2.5 text-cream-50" fill="none" stroke="currentColor" stroke-width="2.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+        </div>
+        <span class="font-display font-semibold text-sm text-olive-700 tracking-tight">— BlueSky <span class="text-gold-gradient">Pro</span></span>
+      </div>
     </div>
   </section>
 
@@ -334,9 +436,9 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-4">Risk Architecture</p>
-        <h2 class="font-display font-bold text-4xl md:text-6xl leading-tight mb-6 text-olive-900">
-          Lose small.<br/>
-          <span class="text-olive-gradient italic">Win big.</span>
+        <h2 class="font-display font-bold leading-[0.95] tracking-tight mb-6 text-olive-900">
+          <span class="block text-2xl md:text-3xl text-olive-600 font-medium italic mb-1">Lose small.</span>
+          <span class="block text-5xl md:text-7xl lg:text-8xl text-olive-gradient italic">Win big.</span>
         </h2>
 
         <!-- Brand signature — logo sits between two hairlines, beneath the catchphrase -->
