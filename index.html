@@ -513,7 +513,7 @@
                 </span>
                 <span class="text-[11px] font-bold text-olive-700 tracking-widest uppercase">Honest Guide</span>
               </div>
-              <span class="text-[11px] font-mono text-olive-500">16 slides</span>
+              <span class="text-[11px] font-mono text-olive-500">15 slides</span>
             </div>
 
             <!-- 3 chips: Good / Bad / Ugly -->
@@ -1456,7 +1456,7 @@
           <span id="hg-modal-title" class="font-display font-bold text-sm md:text-base text-olive-900 truncate">The Good, The Bad &amp; The Ugly</span>
         </div>
         <div class="flex items-center gap-1.5 shrink-0">
-          <span id="hg-counter" class="text-xs font-mono text-olive-600 px-2 whitespace-nowrap">1 / 16</span>
+          <span id="hg-counter" class="text-xs font-mono text-olive-600 px-2 whitespace-nowrap">1 / 15</span>
           <a href="assets/honest-guide.pdf" download class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-olive-700 hover:text-olive-900 px-3 py-1.5 rounded-full hover:bg-olive-100 transition" title="Download original PDF">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/></svg>
             PDF
@@ -1712,11 +1712,12 @@
       var dots    = document.getElementById('hg-dots');
       var btnPrev = document.getElementById('hg-prev');
       var btnNext = document.getElementById('hg-next');
-      var TOTAL   = 16;
+      var TOTAL   = 15;
       var current = 1;
 
       function pad(n) { return (n < 10 ? '0' : '') + n; }
-      function slidePath(n) { return 'assets/slides/slide-' + pad(n) + '.jpg'; }
+      // Skip slide-01 in the modal — start the experience at slide-02 (shown to user as "1")
+      function slidePath(n) { return 'assets/slides/slide-' + pad(n + 1) + '.jpg'; }
 
       // Build dots
       for (var i = 1; i <= TOTAL; i++) {
