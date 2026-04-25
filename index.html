@@ -464,15 +464,42 @@
           </div>
           <p class="text-xs font-bold tracking-widest text-red-600 uppercase mb-2">Stop Loss</p>
           <h3 class="font-display font-bold text-xl mb-3 text-olive-900">Losses end small.</h3>
-          <p class="text-olive-700 text-sm leading-relaxed">A pre-calculated Stop Loss is placed the moment a signal fires — based on volatility and price structure, not arbitrary percentages. Losing trades typically close around <strong class="text-olive-900">-10% to -12%</strong>. No account-blowing drawdowns.</p>
+          <p class="text-olive-700 text-sm leading-relaxed mb-4">A pre-calculated Stop Loss is placed the moment a signal fires — based on volatility and price structure, not arbitrary percentages. Losing trades typically close around <strong class="text-olive-900">-10% to -12%</strong>. No account-blowing drawdowns.</p>
+          <div class="rounded-xl bg-white border-2 border-red-200 px-4 py-4 shadow-sm">
+            <div class="text-center mb-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-[11px] font-black tracking-[0.15em] uppercase">Example · $1,000 position</span>
+            </div>
+            <div class="text-center px-2 py-3 rounded-lg bg-red-50/70 border border-red-100">
+              <p class="font-display font-black text-3xl text-red-600 leading-none">−$100 to −$120</p>
+              <p class="text-[10px] text-red-700 uppercase tracking-wider font-bold mt-2">Maximum loss · capped</p>
+            </div>
+          </div>
         </div>
         <div class="card rounded-2xl p-7">
           <div class="w-11 h-11 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center mb-4">
             <svg class="w-6 h-6 text-gold-dark" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
           </div>
           <p class="text-xs font-bold tracking-widest text-gold-dark uppercase mb-2">Take Profit 1</p>
-          <h3 class="font-display font-bold text-xl mb-3 text-olive-900">Lock in the win.</h3>
-          <p class="text-olive-700 text-sm leading-relaxed">The first profit target scales out part of the position and moves the remaining stop to breakeven. From that point forward, the trade <strong class="text-olive-900">cannot lose money</strong> — only gain.</p>
+          <h3 class="font-display font-bold text-xl mb-3 text-olive-900">Lock the partial.</h3>
+          <p class="text-olive-700 text-sm leading-relaxed mb-4">When price reaches the first profit target, the system scales out <strong class="text-olive-900">30% of the position</strong> — partial profit secured. The remaining 70% runs free until a confirmed trend exit. Even if the runner fully reverses, the locked partial cushions the damage — total damage shrinks by <strong class="text-olive-900">~90%</strong>.</p>
+          <div class="rounded-xl bg-white border-2 border-amber-200 px-4 py-4 shadow-sm">
+            <div class="text-center mb-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-gold-dark text-[11px] font-black tracking-[0.15em] uppercase">Example · $1,000 position</span>
+            </div>
+            <div class="space-y-2">
+              <!-- Bad: runner reverses -->
+              <div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-amber-50/50 border border-amber-100">
+                <span class="text-[10px] font-bold tracking-wider text-gold-dark uppercase flex-1">If runner reverses</span>
+                <span class="font-display font-black text-2xl text-olive-800 leading-none">−$10</span>
+              </div>
+              <!-- Good: runner runs to TP2 -->
+              <div class="flex items-center gap-3 px-3 py-2 rounded-lg" style="background: linear-gradient(180deg, #F3F5E8 0%, #E5EAC9 60%); border: 1px solid #A8B86C;">
+                <span class="text-[10px] font-bold tracking-wider text-olive-800 uppercase flex-1">If runner runs to TP2</span>
+                <span class="font-display font-black text-2xl text-olive-700 leading-none">+$200 to +$320</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-olive-600 text-center mt-3 italic">vs. a clean stop loss of −$100 without any TP1 hit</p>
+          </div>
         </div>
         <div class="card rounded-2xl p-7">
           <div class="w-11 h-11 rounded-lg bg-olive-50 border border-olive-200 flex items-center justify-center mb-4">
@@ -480,8 +507,44 @@
           </div>
           <p class="text-xs font-bold tracking-widest text-olive-600 uppercase mb-2">Take Profit 2</p>
           <h3 class="font-display font-bold text-xl mb-3 text-olive-900">Let winners run.</h3>
-          <p class="text-olive-700 text-sm leading-relaxed">The second target captures the bulk of the move. Historical winners have exited between <strong class="text-olive-900">+15% and +38%</strong>, with a strong cluster around +25-30% on the runner portion.</p>
+          <p class="text-olive-700 text-sm leading-relaxed mb-4">The second target captures the bulk of the move. Historical winners have exited between <strong class="text-olive-900">+15% and +38%</strong>, with a strong cluster around +25-30% on the runner portion.</p>
+          <div class="rounded-xl bg-white border-2 border-olive-300 px-4 py-4 shadow-sm">
+            <div class="text-center mb-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-olive-50 border border-olive-200 text-olive-700 text-[11px] font-black tracking-[0.15em] uppercase">Example · $1,000 position</span>
+            </div>
+            <div class="text-center px-2 py-3 rounded-lg" style="background: linear-gradient(180deg, #F3F5E8 0%, #C9D9A0 100%); border: 1px solid #A8B86C;">
+              <p class="font-display font-black text-3xl text-olive-700 leading-none">+$250 to +$320</p>
+              <p class="text-[10px] text-olive-700 uppercase tracking-wider font-bold mt-2">Typical full winner</p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Anatomy of a winner — the single-trade journey those 3 cards add up to -->
+      <div class="mt-10 max-w-3xl mx-auto rounded-2xl p-6 md:p-8 text-center shadow-xl" style="background: linear-gradient(135deg, #2A3220 0%, #3E4826 100%); color: #FDFAF1;">
+        <p class="text-[11px] font-black tracking-[0.22em] uppercase mb-5" style="color: #C9D9A0;">Anatomy of one full winner</p>
+        <div class="flex items-center justify-center gap-3 md:gap-5 flex-wrap">
+          <div class="text-right">
+            <p class="text-[10px] uppercase tracking-wider font-semibold" style="color: rgba(253,250,241,0.65);">Position</p>
+            <p class="font-display font-bold text-3xl md:text-4xl mt-1 whitespace-nowrap" style="color: #FDFAF1;">$1,000</p>
+          </div>
+          <svg class="w-7 h-7 md:w-10 md:h-10 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color: #D4B378;"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          <div class="text-left">
+            <p class="text-[10px] uppercase tracking-wider font-semibold" style="color: rgba(253,250,241,0.65);">Trade closes at</p>
+            <p class="font-display font-black text-3xl md:text-5xl mt-1 whitespace-nowrap" style="background: linear-gradient(135deg, #D4B378 0%, #B8935A 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$1,250 — $1,320</p>
+          </div>
+        </div>
+        <div class="mt-5 pt-4 border-t border-olive-700 grid sm:grid-cols-2 gap-3 text-sm" style="color: rgba(253,250,241,0.9);">
+          <div class="px-3 py-2 rounded-lg" style="background: rgba(201,217,160,0.10);">
+            <span class="text-[10px] tracking-wider uppercase font-bold block mb-0.5" style="color: #C9D9A0;">Step 1 · TP1 partial</span>
+            <span>30% scaled at +20% &nbsp;→&nbsp; <strong style="color: #D4B378;">+$60 locked</strong></span>
+          </div>
+          <div class="px-3 py-2 rounded-lg" style="background: rgba(201,217,160,0.10);">
+            <span class="text-[10px] tracking-wider uppercase font-bold block mb-0.5" style="color: #C9D9A0;">Step 2 · Runner to TP2</span>
+            <span>70% closes at +25-30% &nbsp;→&nbsp; <strong style="color: #D4B378;">+$190-$260</strong></span>
+          </div>
+        </div>
+        <p class="text-base mt-5 font-display italic" style="color: #FDFAF1;">Net: <strong style="color: #D4B378;">+$250 to +$320</strong> on the trade · risk was capped, partial secured, runner ran.</p>
       </div>
     </div>
   </section>
@@ -501,12 +564,12 @@
       <div class="card rounded-2xl p-8 md:p-10 mb-10">
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div class="rounded-xl border border-red-200 bg-red-50 p-6">
-            <p class="text-xs text-red-700 font-bold tracking-widest uppercase mb-3">Without Rules (Vanilla)</p>
+            <p class="text-xs text-red-700 font-bold tracking-widest uppercase mb-3">Same Stocks · No Rules</p>
             <div class="flex items-baseline gap-3 mb-2">
-              <span class="font-display font-bold text-5xl text-red-600">-1.77%</span>
+              <span class="font-display font-bold text-5xl text-red-600">+17.27%</span>
               <span class="text-olive-600 text-sm">CAGR</span>
             </div>
-            <p class="text-olive-700 text-sm">Sharpe: -0.06 · Capital erodes. Losing strategy.</p>
+            <p class="text-olive-700 text-sm">Sharpe: 0.87 · Underperforms with worse risk-adjusted returns.</p>
           </div>
           <div class="rounded-xl border-2 border-olive-400 bg-olive-50 p-6">
             <p class="text-xs text-olive-700 font-bold tracking-widest uppercase mb-3">With BlueSky Pro</p>
@@ -520,7 +583,7 @@
         <div class="text-center pt-2">
           <span class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-light/30 to-gold/20 border border-gold/40">
             <svg class="w-4 h-4 text-gold-dark" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z"/></svg>
-            <span class="font-display font-bold text-lg text-olive-900">+39.03pp Alpha Delta</span>
+            <span class="font-display font-bold text-lg text-olive-900">+19.99pp Alpha Delta</span>
           </span>
         </div>
       </div>
@@ -540,8 +603,95 @@
           <p class="text-xs text-olive-600 uppercase tracking-wider font-semibold">Max Drawdown</p>
         </div>
         <div class="card rounded-xl p-6 text-center">
-          <p class="font-display font-bold text-4xl text-olive-gradient mb-1">2.57</p>
-          <p class="text-xs text-olive-600 uppercase tracking-wider font-semibold">MAR Ratio</p>
+          <p class="font-display font-bold text-4xl text-olive-gradient mb-1">49.6%</p>
+          <p class="text-xs text-olive-600 uppercase tracking-wider font-semibold">Win Rate</p>
+        </div>
+      </div>
+
+      <!-- Out-of-Sample Validation — COVID + BEAR as the hero proof -->
+      <div class="card rounded-2xl p-6 md:p-8 mb-10 border-l-4 border-olive-400" style="background: linear-gradient(135deg, #F3F5E8 0%, #FBF9F4 100%);">
+
+        <!-- Hero header -->
+        <div class="text-center mb-7">
+          <p class="text-xs text-olive-700 font-bold tracking-widest uppercase mb-2">Out-of-Sample Validation · 2018&nbsp;—&nbsp;2022</p>
+          <h3 class="font-display font-bold text-2xl md:text-4xl text-olive-900 leading-tight">When the market crashed, <span class="text-olive-gradient italic">we didn't</span>.</h3>
+          <p class="text-olive-700 text-sm mt-3 max-w-2xl mx-auto">Same rules, same code — blind backtest on the previous 4-year window. The system didn't just survive the chaos. <strong class="text-olive-900">It profited through it.</strong></p>
+        </div>
+
+        <!-- TWO HERO COMPARISON CARDS -->
+        <div class="grid md:grid-cols-2 gap-5 mb-8">
+
+          <!-- COVID 2020 -->
+          <div class="rounded-xl overflow-hidden border-2 border-olive-300 bg-white shadow-md">
+            <div class="px-5 py-3 bg-olive-900 text-cream-50">
+              <p class="text-[10px] font-bold tracking-[0.18em] text-olive-200 uppercase">2020 · COVID Crash</p>
+              <p class="font-display font-bold text-base mt-0.5">33 days. Markets in freefall.</p>
+            </div>
+            <div class="grid grid-cols-2">
+              <div class="px-4 py-6 text-center" style="background: linear-gradient(180deg, #FEE2E2 0%, #FECACA 100%);">
+                <p class="text-[10px] font-bold tracking-widest text-red-800 uppercase mb-2">S&amp;P 500</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-red-700 leading-none">−34%</p>
+                <div class="mt-3 inline-flex items-center gap-1 text-red-700">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"/></svg>
+                  <span class="text-[10px] font-black tracking-widest uppercase">Crashed</span>
+                </div>
+              </div>
+              <div class="px-4 py-6 text-center" style="background: linear-gradient(180deg, #E5EAC9 0%, #C9D9A0 100%);">
+                <p class="text-[10px] font-bold tracking-widest text-olive-800 uppercase mb-2">BlueSky Pro</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-olive-700 leading-none">+30.9%</p>
+                <div class="mt-3 inline-flex items-center gap-1 text-olive-700">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"/></svg>
+                  <span class="text-[10px] font-black tracking-widest uppercase">Profited</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BEAR 2022 -->
+          <div class="rounded-xl overflow-hidden border-2 border-olive-300 bg-white shadow-md">
+            <div class="px-5 py-3 bg-olive-900 text-cream-50">
+              <p class="text-[10px] font-bold tracking-[0.18em] text-olive-200 uppercase">2022 · Full Bear Market</p>
+              <p class="font-display font-bold text-base mt-0.5">12 months. Capitulation everywhere.</p>
+            </div>
+            <div class="grid grid-cols-2">
+              <div class="px-4 py-6 text-center" style="background: linear-gradient(180deg, #FEE2E2 0%, #FECACA 100%);">
+                <p class="text-[10px] font-bold tracking-widest text-red-800 uppercase mb-2">S&amp;P 500</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-red-700 leading-none">−25%</p>
+                <div class="mt-3 inline-flex items-center gap-1 text-red-700">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z"/></svg>
+                  <span class="text-[10px] font-black tracking-widest uppercase">Bled</span>
+                </div>
+              </div>
+              <div class="px-4 py-6 text-center" style="background: linear-gradient(180deg, #E5EAC9 0%, #C9D9A0 100%);">
+                <p class="text-[10px] font-bold tracking-widest text-olive-800 uppercase mb-2">BlueSky Pro</p>
+                <p class="font-display font-black text-4xl md:text-5xl text-olive-700 leading-none">+40.5%</p>
+                <div class="mt-3 inline-flex items-center gap-1 text-olive-700">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"/></svg>
+                  <span class="text-[10px] font-black tracking-widest uppercase">Profited</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 KPI grid — supporting role under the hero -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-6 border-t border-olive-200">
+          <div class="text-center">
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">+18.50%</p>
+            <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">4-yr CAGR</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">1.19</p>
+            <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">Sharpe</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">−19.54%</p>
+            <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">Max DD</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display font-bold text-2xl md:text-4xl text-olive-gradient leading-none">50.4%</p>
+            <p class="text-[11px] md:text-xs text-olive-600 uppercase tracking-wider font-semibold mt-2">Win Rate</p>
+          </div>
         </div>
       </div>
 
@@ -1039,18 +1189,21 @@
         </div>
       </div>
 
-      <!-- Slide viewer — fills remaining vertical space; image uses object-contain to fit -->
-      <div class="relative bg-olive-900 flex items-center justify-center flex-1 min-h-0 overflow-hidden">
-        <img id="hg-slide" src="" alt="Slide" class="w-full h-full object-contain" />
-
-        <!-- Prev button -->
-        <button type="button" id="hg-prev" onclick="hgPrev()" class="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream-50/90 backdrop-blur border border-olive-200 hover:bg-cream-50 text-olive-700 hover:text-olive-900 flex items-center justify-center shadow-lg transition disabled:opacity-25 disabled:cursor-not-allowed" aria-label="Previous slide">
-          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      <!-- Body row: prev column | slide | next column. Arrows live OUTSIDE the slide image. -->
+      <div class="flex items-stretch flex-1 min-h-0 bg-olive-900">
+        <!-- Prev column -->
+        <button type="button" id="hg-prev" onclick="hgPrev()" class="shrink-0 w-10 sm:w-12 md:w-16 flex items-center justify-center text-cream-100 hover:bg-olive-800 active:bg-olive-700 transition disabled:opacity-25 disabled:cursor-not-allowed disabled:hover:bg-transparent" aria-label="Previous slide">
+          <svg class="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </button>
 
-        <!-- Next button -->
-        <button type="button" id="hg-next" onclick="hgNext()" class="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-cream-50/90 backdrop-blur border border-olive-200 hover:bg-cream-50 text-olive-700 hover:text-olive-900 flex items-center justify-center shadow-lg transition disabled:opacity-25 disabled:cursor-not-allowed" aria-label="Next slide">
-          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        <!-- Slide image — clean, no overlay -->
+        <div class="flex-1 min-h-0 flex items-center justify-center overflow-hidden">
+          <img id="hg-slide" src="" alt="Slide" class="max-w-full max-h-full object-contain" />
+        </div>
+
+        <!-- Next column -->
+        <button type="button" id="hg-next" onclick="hgNext()" class="shrink-0 w-10 sm:w-12 md:w-16 flex items-center justify-center text-cream-100 hover:bg-olive-800 active:bg-olive-700 transition disabled:opacity-25 disabled:cursor-not-allowed disabled:hover:bg-transparent" aria-label="Next slide">
+          <svg class="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
       </div>
 
