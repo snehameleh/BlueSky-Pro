@@ -367,7 +367,6 @@
         </div>
         <span class="font-display font-bold text-xl tracking-tight text-olive-900">BlueSky <span class="text-gold-gradient">Pro</span></span>
       </a>
-      <img src="images/banner-beach.jpg" alt="" class="hidden md:block h-8 lg:h-9 w-40 lg:w-48 xl:w-56 object-fill rounded-md border border-olive-200/70 shadow-sm shrink-0" loading="eager" decoding="async" />
       <div class="hidden md:flex items-center gap-6 text-sm text-olive-700 font-medium">
         <a href="#system" class="hover:text-olive-900 transition">The System</a>
         <a href="#proof" class="hover:text-olive-900 transition">Results</a>
@@ -376,7 +375,13 @@
         <a href="#pricing" class="hover:text-olive-900 transition">Pricing</a>
         <a href="#faq" class="hover:text-olive-900 transition">FAQ</a>
       </div>
-      <a href="#pricing" class="btn-primary px-5 py-2 rounded-full text-sm">Get Access</a>
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" onclick="openHonestGuide()" class="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-gold-dark bg-gold-light/25 hover:bg-gold-light/45 border border-gold/40 hover:border-gold/60 shadow-sm transition" aria-label="Open The Good, The Bad and The Ugly">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          <span class="whitespace-nowrap">Good · Bad · Ugly</span>
+        </button>
+        <a href="#pricing" class="btn-primary px-5 py-2 rounded-full text-sm whitespace-nowrap">Get Access</a>
+      </div>
     </div>
   </nav>
 
@@ -405,9 +410,13 @@
             <span class="text-olive-gradient italic">Let your money work.</span>
           </h1>
 
-          <p class="text-base md:text-lg text-olive-700 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+          <p class="text-base md:text-lg text-olive-700 max-w-2xl lg:max-w-xl mx-auto lg:mx-0 leading-relaxed mb-5">
             A semi-automated swing trading system for the daily chart. Curated stocks, precision signals, and a battle-tested rulebook — inside TradingView. <span class="text-olive-900 font-semibold">15 minutes a day.</span>
           </p>
+
+          <div class="max-w-2xl lg:max-w-xl mx-auto lg:mx-0 mb-8">
+            <img src="images/banner-beach.jpg" alt="" class="w-full h-auto rounded-xl border border-olive-200 shadow-md" loading="lazy" decoding="async" />
+          </div>
 
           <div class="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-8">
             <a href="#pricing" class="btn-gold px-7 py-3.5 rounded-full text-base">Get BlueSky Pro →</a>
@@ -431,73 +440,44 @@
           </div>
         </div>
 
-        <!-- RIGHT: stylized "Signal Preview" card — smaller, supporting role -->
+        <!-- RIGHT: "Good, Bad, Ugly" teaser card — opens honest guide modal -->
         <div class="lg:col-span-4 lg:max-w-xs lg:ml-auto w-full">
-          <div class="card rounded-2xl p-4 md:p-5 relative">
-            <!-- Card header strip -->
-            <div class="flex items-center justify-between mb-4">
+          <button type="button" onclick="openHonestGuide()" class="card rounded-2xl p-5 md:p-6 relative w-full text-left group hover:shadow-xl transition-all cursor-pointer block ring-2 ring-gold/35 hover:ring-gold/55 shadow-md">
+            <div class="flex items-center justify-between mb-5">
               <div class="flex items-center gap-2">
                 <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-olive-500 opacity-60"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-olive-600"></span>
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-60"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
                 </span>
-                <span class="text-[11px] font-bold text-olive-700 tracking-widest uppercase">Signal Preview</span>
+                <span class="text-[11px] font-bold text-olive-700 tracking-widest uppercase">Honest Guide</span>
               </div>
-              <span class="text-[11px] font-mono text-olive-500">Daily · 1D</span>
+              <span class="text-[11px] font-mono text-olive-500">16 slides</span>
             </div>
 
-            <!-- SVG mini-chart: BUY entry → TP1 → TP2 target, SL below -->
-            <svg viewBox="0 0 320 200" class="w-full h-auto" role="img" aria-label="Example BlueSky Pro signal with entry, TP1, TP2, and SL levels">
-              <!-- Gridlines -->
-              <line x1="0" y1="40"  x2="320" y2="40"  stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
-              <line x1="0" y1="95"  x2="320" y2="95"  stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
-              <line x1="0" y1="155" x2="320" y2="155" stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
-              <line x1="0" y1="180" x2="320" y2="180" stroke="#E8E0C8" stroke-dasharray="2,4" stroke-width="1"/>
-
-              <!-- Price line from entry to TP2 -->
-              <path d="M20,168 Q50,160 75,145 T135,105 T200,70 T270,42 T306,35"
-                    stroke="#556330" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-              <!-- Soft area fill under the price line -->
-              <path d="M20,168 Q50,160 75,145 T135,105 T200,70 T270,42 T306,35 L306,195 L20,195 Z"
-                    fill="url(#fill)" opacity="0.18"/>
-              <defs>
-                <linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#6B7B3F" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#6B7B3F" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-
-              <!-- TP2 line + label (top) -->
-              <line x1="20" y1="40" x2="306" y2="40" stroke="#556330" stroke-width="1.2" stroke-dasharray="5,3"/>
-              <rect x="20" y="26" width="54" height="16" rx="3" fill="#E5EAC9" stroke="#556330" stroke-width="0.8"/>
-              <text x="47" y="37" fill="#3E4826" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">TP2</text>
-              <text x="300" y="37" fill="#556330" font-size="10" font-family="Inter" font-weight="700" text-anchor="end">+28%</text>
-
-              <!-- TP1 line + label (middle) -->
-              <line x1="20" y1="95" x2="306" y2="95" stroke="#B8935A" stroke-width="1.2" stroke-dasharray="5,3"/>
-              <rect x="20" y="81" width="54" height="16" rx="3" fill="#FEF3C7" stroke="#B8935A" stroke-width="0.8"/>
-              <text x="47" y="92" fill="#92400E" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">TP1</text>
-              <text x="300" y="92" fill="#92400E" font-size="10" font-family="Inter" font-weight="700" text-anchor="end">+12%</text>
-
-              <!-- SL line + label (bottom) -->
-              <line x1="20" y1="180" x2="306" y2="180" stroke="#B91C1C" stroke-width="1.2" stroke-dasharray="5,3"/>
-              <rect x="20" y="184" width="54" height="16" rx="3" fill="#FEE2E2" stroke="#B91C1C" stroke-width="0.8"/>
-              <text x="47" y="195" fill="#B91C1C" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">SL</text>
-              <text x="300" y="195" fill="#B91C1C" font-size="10" font-family="Inter" font-weight="700" text-anchor="end">-10%</text>
-
-              <!-- BUY entry marker -->
-              <circle cx="20" cy="168" r="5.5" fill="#556330" stroke="#FFFDF7" stroke-width="2"/>
-              <rect x="30" y="160" width="38" height="16" rx="3" fill="#556330"/>
-              <text x="49" y="171" fill="#FDFAF1" font-size="10" font-family="Inter" font-weight="800" text-anchor="middle">BUY</text>
-            </svg>
-
-            <!-- Card footer -->
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-olive-200">
-              <span class="text-[11px] text-olive-600">Asymmetric by design</span>
-              <span class="text-xs font-bold text-olive-900">R/R ≈ 1 : 2.8</span>
+            <!-- 3 chips: Good / Bad / Ugly -->
+            <div class="grid grid-cols-3 gap-2 mb-5">
+              <div class="rounded-lg py-3 px-1 bg-olive-100 border border-olive-300 text-center">
+                <svg class="w-6 h-6 mx-auto mb-1 text-olive-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg>
+                <div class="text-[11px] font-bold text-olive-800 tracking-wider uppercase">Good</div>
+              </div>
+              <div class="rounded-lg py-3 px-1 bg-red-100 border border-red-300 text-center">
+                <svg class="w-6 h-6 mx-auto mb-1 text-red-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l6 6 4-4 8 8M14 17h7v-7"/></svg>
+                <div class="text-[11px] font-bold text-red-700 tracking-wider uppercase">Bad</div>
+              </div>
+              <div class="rounded-lg py-3 px-1 bg-gold-light/30 border border-gold/50 text-center">
+                <svg class="w-6 h-6 mx-auto mb-1 text-gold-dark" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.5h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4a2 2 0 00-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"/></svg>
+                <div class="text-[11px] font-bold text-gold-dark tracking-wider uppercase">Ugly</div>
+              </div>
             </div>
-          </div>
+
+            <h3 class="font-display font-bold text-xl text-olive-900 mb-2 leading-tight">The <span class="text-olive-500">Good</span>, the <span class="text-red-600">Bad</span>,<br/>and the <span class="text-gold-dark italic">Ugly</span>.</h3>
+            <p class="text-[13px] text-olive-700 leading-relaxed mb-4">The full story — wins, losses, and the cycles that failed and shaped every rule. No marketing.</p>
+
+            <div class="inline-flex items-center gap-1.5 text-sm font-bold text-olive-800 group-hover:text-olive-900 transition">
+              <span>Open the guide</span>
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </button>
         </div>
       </div>
 
@@ -1457,14 +1437,6 @@
     </div>
   </div>
 
-  <!-- ====== FLOATING ACCESS BUTTON ====== -->
-  <button type="button" id="hg-fab" onclick="openHonestGuide()" class="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-40 group flex items-center gap-2.5 pl-3 pr-5 py-3 rounded-full shadow-lg btn-gold" aria-label="Open The Good, The Bad and The Ugly">
-    <span class="relative flex items-center justify-center w-6 h-6 shrink-0">
-      <span class="absolute inset-0 rounded-full bg-gold-light opacity-60 animate-ping"></span>
-      <svg class="relative w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-    </span>
-    <span class="font-semibold text-sm whitespace-nowrap">Good · Bad · Ugly</span>
-  </button>
 
   <!-- Signal slideshow + GIF player -->
   <script>
