@@ -596,6 +596,104 @@
     </div>
   </section>
 
+  <!-- ====== PROMO VIDEO — the 31-second tour ====== -->
+  <section id="in-motion" class="py-14 md:py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-8 md:mb-12">
+        <p class="text-olive-600 text-sm font-semibold tracking-widest uppercase mb-4">In Motion</p>
+        <h2 class="font-display font-bold text-4xl md:text-6xl leading-tight mb-6 text-olive-900">
+          Watch the rules <span class="text-olive-gradient italic">come alive</span>.
+        </h2>
+        <p class="text-olive-700 text-lg max-w-2xl mx-auto">A 31-second walkthrough — the system, the alerts, and what happens after the trigger fires.</p>
+      </div>
+
+      <!-- Video frame: 16/9 on desktop, 9/16 on mobile (CSS swap below) -->
+      <div class="promo-frame relative rounded-2xl overflow-hidden shadow-2xl border border-olive-200/60 bg-olive-900 mx-auto">
+        <video
+          id="promo-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          class="absolute inset-0 w-full h-full block"
+          style="object-fit: cover;"
+        >
+          <source id="promo-video-src" src="BlueSky Pro Promo.mp4" type="video/mp4">
+        </video>
+
+        <!-- Sound toggle -->
+        <button
+          type="button"
+          id="promo-video-toggle"
+          class="absolute bottom-3 right-3 md:bottom-4 md:right-4 w-10 h-10 md:w-11 md:h-11 rounded-full bg-olive-900/70 backdrop-blur border border-cream-50/20 text-cream-50 flex items-center justify-center transition hover:bg-olive-900/90"
+          aria-label="Toggle sound"
+        >
+          <svg id="promo-video-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="text-olive-500 text-sm text-center mt-5">Tap the speaker to turn on sound.</p>
+    </div>
+  </section>
+
+  <style>
+    /* Promo frame aspect: landscape on desktop, portrait on mobile */
+    .promo-frame { aspect-ratio: 16 / 9; max-width: 960px; }
+    @media (max-width: 700px) {
+      .promo-frame { aspect-ratio: 9 / 16; max-width: 360px; }
+    }
+  </style>
+
+  <script>
+  (function () {
+    var v = document.getElementById('promo-video');
+    var src = document.getElementById('promo-video-src');
+    var btn = document.getElementById('promo-video-toggle');
+    var icon = document.getElementById('promo-video-icon');
+    if (!v || !src || !btn || !icon) return;
+
+    var ICON_MUTED = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+    var ICON_LOUD  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+
+    function setMuted(m) {
+      v.muted = m;
+      icon.innerHTML = m ? ICON_MUTED : ICON_LOUD;
+    }
+    setMuted(true);
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setMuted(!v.muted);
+      if (!v.muted && v.paused) v.play().catch(function(){});
+    });
+
+    // Adaptive source: swap to vertical on narrow viewports (< 700px)
+    var lastIsMobile = null;
+    function applySource() {
+      var isMobile = window.matchMedia('(max-width: 700px)').matches;
+      if (isMobile === lastIsMobile) return;
+      lastIsMobile = isMobile;
+      var newSrc = isMobile ? 'BlueSky Pro Promo Mobile.mp4' : 'BlueSky Pro Promo.mp4';
+      var t = v.currentTime || 0;
+      src.src = newSrc;
+      v.load();
+      v.currentTime = t;
+      var p = v.play();
+      if (p && p.catch) p.catch(function(){});
+    }
+    applySource();
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt); rt = setTimeout(applySource, 250);
+    });
+  })();
+  </script>
+
   <!-- ====== THE SYSTEM ====== -->
   <section id="system" class="py-14 md:py-28 px-6 bg-cream-alt">
     <div class="max-w-6xl mx-auto">
